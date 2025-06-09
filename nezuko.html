@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nezuko Kamado - The Demon Who Protects Humans</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2d1b2e; /* Dark pink/purple background */
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #FF69B4; /* Nezuko's pink */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #FF69B4;
+            border-bottom: 3px solid #FF69B4;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        /* Header/Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(45, 27, 46, 0.95);
+            z-index: 1000;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('/placeholder.svg?height=800&width=1200');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 90%;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 999;
+            background-color: #FF69B4;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #e55aa0;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #4a2d4a; /* Lighter pink/purple */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .about-text {
+            width: 100%;
+        }
+
+        .about-image {
+            width: 100%;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Powers Section */
+        .powers {
+            background-color: #4a2d4a;
+        }
+
+        .powers-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .powers-text {
+            width: 100%;
+        }
+
+        .powers-image {
+            width: 100%;
+            text-align: center;
+        }
+
+        .powers-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .power-list {
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .power-list li {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 105, 180, 0.1);
+            border-radius: 6px;
+            border-left: 3px solid #FF69B4;
+        }
+
+        .power-list li strong {
+            color: #FF69B4;
+        }
+
+        /* Memories Section */
+        .memories {
+            background-color: #2d1b2e;
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .memory-card {
+            background-color: #4a2d4a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-left: 4px solid #FF69B4;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .memory-card h3 {
+            color: #FF69B4;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f0f1f;
+            color: #f0f0f0;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive - Tablet and up */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+            }
+
+            .about-content, .powers-content {
+                flex-direction: row;
+            }
+
+            .about-text, .powers-text, .about-image, .powers-image {
+                flex: 1;
+                min-width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn">← Back to Inosuke</a>
+
+    <!-- Header -->
+    <header>
+        <h1>NEZUKO KAMADO</h1>
+        <nav style="margin-top: 0.5rem;">
+            <a href="index.html" style="color: #5cbeff; margin: 0 1rem; text-decoration: none; font-weight: bold;">Inosuke</a>
+            <a href="tanjiro.html" style="color: #4CAF50; margin: 0 1rem; text-decoration: none; font-weight: bold;">Tanjiro</a>
+            <a href="zenitsu.html" style="color: #FFD700; margin: 0 1rem; text-decoration: none; font-weight: bold;">Zenitsu</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <p>THE DEMON WHO PROTECTS HUMANS AND FIGHTS FOR LOVE!</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Who Is Nezuko?</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/placeholder.svg?height=400&width=400" alt="Nezuko Kamado">
+                </div>
+                <div class="about-text">
+                    <p>Mmmph! Mmm mmph! (I am Nezuko Kamado, Tanjiro's younger sister who was turned into a demon but retained my humanity!)</p>
+                    <p>Even though I'm a demon, I've never eaten a human. Instead, I fight alongside my brother to protect innocent people from other demons who have lost their way.</p>
+                    <p>I sleep to regain my strength instead of eating humans, and I've grown stronger through my love for my family and determination to help others.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Powers Section -->
+    <section class="powers" id="powers">
+        <div class="container">
+            <h2>My Demon Powers</h2>
+            <div class="powers-content">
+                <div class="powers-image">
+                    <img src="/placeholder.svg?height=400&width=400" alt="Nezuko using her powers">
+                </div>
+                <div class="powers-text">
+                    <p>As a demon, I have unique abilities that I use to protect humans and fight evil demons.</p>
+                    <p>My special powers include:</p>
+                    <ul class="power-list">
+                        <li><strong>Blood Demon Art: Exploding Blood</strong> - I can ignite my blood to create powerful explosions</li>
+                        <li><strong>Size Manipulation</strong> - I can shrink to fit in small spaces or grow larger for battle</li>
+                        <li><strong>Regeneration</strong> - I can heal from injuries quickly like other demons</li>
+                        <li><strong>Enhanced Strength</strong> - My demon strength allows me to kick through walls and fight powerful enemies</li>
+                        <li><strong>Sunlight Resistance</strong> - Unlike other demons, I can walk in sunlight without being harmed</li>
+                    </ul>
+                    <p>My bamboo muzzle helps me control my demon instincts and reminds me to protect humans instead of harming them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section class="memories" id="memories">
+        <div class="container">
+            <h2>My Precious Memories</h2>
+            <div class="memories-grid">
+                <div class="memory-card">
+                    <h3>Life Before</h3>
+                    <p>I remember my happy life with my family, taking care of my younger siblings and helping around the house. Those warm memories keep my humanity alive.</p>
+                </div>
+                <div class="memory-card">
+                    <h3>Tanjiro's Love</h3>
+                    <p>My brother never gave up on me, even when everyone said I should be killed. His love and faith in me gives me strength to fight my demon nature.</p>
+                </div>
+                <div class="memory-card">
+                    <h3>Protecting Others</h3>
+                    <p>Every time I protect a human from demons, I feel more like myself. Fighting for others instead of my own hunger makes me stronger.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Nezuko Kamado - The Demon Who Chose Love</p>
+            <p>Mmph mmm! (Fighting for humanity with love and determination!)</p>
+        </div>
+    </footer>
+</body>
+</html>
