@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inosuke Hashibira - The Greatest Beast</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f1923; /* Dark navy background - Demon Slayer theme */
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #5cbeff; /* Inosuke's light blue color */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #5cbeff; /* Inosuke's light blue color */
+            border-bottom: 3px solid #5cbeff;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        /* Header/Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 25, 35, 0.9); /* Semi-transparent dark navy */
+            z-index: 1000;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4b3107b0046825e25393ae692ecb5c0d.jpg-oMrewQKWhtoNy71dS9ggnsiDXaSHX1.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 60px; /* Account for fixed header */
+        }
+
+        .hero-content {
+            max-width: 90%;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Scroll Button (Swords) */
+        .scroll-btn {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .swords {
+            position: relative;
+            width: 60px;
+            height: 90px;
+        }
+
+        .sword {
+            position: absolute;
+            width: 15px;
+            height: 80px;
+            background: linear-gradient(to bottom, #d1d1d1, #a1a1a1);
+            border-radius: 2px;
+        }
+
+        .sword:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 15px;
+            height: 8px;
+            background: #7f8c8d;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .sword:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 15px;
+            height: 8px;
+            background: #34495e;
+            border-radius: 0 0 2px 2px;
+        }
+
+        .sword-left {
+            left: 10px;
+            transform: rotate(-15deg);
+        }
+
+        .sword-right {
+            right: 10px;
+            transform: rotate(15deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* About Section */
+        .about {
+            background-color: #1a2634; /* Slightly lighter navy */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .about-text {
+            width: 100%;
+        }
+
+        .about-image {
+            width: 100%;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Names Section */
+        .names {
+            background-color: #0f1923; /* Dark navy */
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .names-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .name-card {
+            background-color: #1a2634; /* Slightly lighter navy */
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-left: 3px solid #5cbeff; /* Inosuke's blue */
+        }
+
+        .name-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #1a2634; /* Slightly lighter navy */
+        }
+
+        .skills-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .skills-text {
+            width: 100%;
+        }
+
+        .skills-image {
+            width: 100%;
+            text-align: center;
+        }
+
+        .skills-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .technique-list {
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .technique-list li {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: rgba(92, 190, 255, 0.1); /* Light blue with opacity */
+            border-radius: 6px;
+            border-left: 3px solid #5cbeff;
+        }
+
+        .technique-list li strong {
+            color: #5cbeff;
+        }
+
+        /* Adventures Section */
+        .adventures {
+            background-color: #0f1923; /* Dark navy */
+        }
+
+        .adventure-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .adventure-card {
+            width: 100%;
+            text-align: center;
+        }
+
+        .adventure-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .adventure-card p {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a111a; /* Darker navy */
+            color: #f0f0f0;
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive - Tablet and up */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+            }
+
+            .about-content, .skills-content {
+                flex-direction: row;
+            }
+
+            .about-text, .skills-text, .about-image, .skills-image {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .adventure-grid {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .adventure-card {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .names-list {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>INOSUKE HASHIBIRA</h1>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <p>THE LORD OF THE MOUNTAIN! THE GREATEST BEAST!</p>
+        </div>
+        <div class="scroll-btn" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+            <div class="swords">
+                <div class="sword sword-left"></div>
+                <div class="sword sword-right"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Who Is Inosuke?</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rxlpmifi3tfd1-hQl0zha0NIN7RSnTxYnT3Z6elXXUWW.jpeg" alt="Inosuke with boar mask">
+                </div>
+                <div class="about-text">
+                    <p>I am Inosuke Hashibira, the greatest swordsman in the world! I was raised by boars in the mountains and learned to survive on my own. My incredible instincts and physical abilities make me the strongest Demon Slayer!</p>
+                    <p>I wear my boar head mask because it's awesome and intimidating! My Beast Breathing technique allows me to move in unpredictable ways that even demons can't follow. No one can match my flexibility and wild fighting style!</p>
+                    <p>I don't need anyone's help! Though sometimes I team up with that Monjiro guy and the crying boy. They're not as strong as me, but they're okay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Names Section -->
+    <section class="names" id="names">
+        <div class="container">
+            <h2>What I Call That Guy With The Hanafuda Earrings</h2>
+            <p>I never remember that guy's actual name. Here are some of the names I call him:</p>
+            <div class="names-list">
+                <div class="name-card">Gonpachiro Kamaboko</div>
+                <div class="name-card">Kentaro</div>
+                <div class="name-card">Monjiro</div>
+                <div class="name-card">Tontaro</div>
+                <div class="name-card">Santaro</div>
+                <div class="name-card">Kamaboko Gonpachiro</div>
+                <div class="name-card">Itadaki Tontaro</div>
+                <div class="name-card">Shakakiri Gengoro</div>
+                <div class="name-card">Tanjuro</div>
+                <div class="name-card">Kanjiro</div>
+                <div class="name-card">Tangoro</div>
+                <div class="name-card">Gonpachi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>My Beast Breathing Techniques</h2>
+            <div class="skills-content">
+                <div class="skills-image">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/demon-slayer-inosuke-s-strongest-attacks-abilities-great-flexibility-fgVLf8CZ303QsUAxIwCwq82Qj8yH2H.avif" alt="Inosuke showing strength">
+                </div>
+                <div class="skills-text">
+                    <p>My Beast Breathing is the strongest of all breathing styles! I created it myself in the mountains!</p>
+                    <p>Some of my incredible techniques include:</p>
+                    <ul class="technique-list">
+                        <li><strong>Fang One: Pierce</strong> - A single thrust with incredible speed and power</li>
+                        <li><strong>Fang Two: Slice</strong> - A lateral slash that can cut through anything</li>
+                        <li><strong>Fang Three: Devour</strong> - Multiple simultaneous slashes in all directions</li>
+                        <li><strong>Fang Four: Mince</strong> - Rapid consecutive slashes that turn enemies to pieces</li>
+                        <li><strong>Fang Five: Crazy Cutting</strong> - Wild, unpredictable slashes that can't be dodged</li>
+                    </ul>
+                    <p>I can also dislocate all my joints to fit through tiny spaces and sense the core of my enemies with my incredible touch sensitivity!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adventures Section -->
+    <section class="adventures">
+        <div class="container">
+            <h2>My Greatest Adventures</h2>
+            <div class="adventure-grid">
+                <div class="adventure-card">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/b17a5-17181203743535-1920.jpg-FQhWKB6zEBfZQGswl7T3mBQH0Gobjf.jpeg" alt="Inosuke and Tanjiro">
+                    <p><strong>Fighting alongside Kentaro against the spider demons</strong></p>
+                </div>
+                <div class="adventure-card">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1744988604-875752d8960c405832546f9413d64b36-ucUqk7lrHydPaarej6wLdwdGCFrQzB.webp" alt="Inosuke in battle">
+                    <p><strong>Battling on the Mugen Train with my incredible strength</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Inosuke Hashibira - The Greatest Beast in the World!</p>
+            <p>Written by Inosuke himself (because I'm amazing at everything including writing!)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
